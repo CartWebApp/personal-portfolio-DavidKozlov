@@ -1,0 +1,40 @@
+:root {
+    --primary-dark: #233b3c; /* background base */
+    --secondary-neutral: #9ba7b0; /* text & UI */
+    --muted-accent: #918780; /* borders, subtle */
+    --highlight-green: #68be94; /* glows, hover */
+    --highlight-orange: #ffa66b; /* cta */
+
+    --bg: var(--primary-dark);
+    --text: var(--secondary-neutral);
+    --muted: var(--muted-accent);
+    --accent: var(--highlight-green);
+    --cta: var(--highlight-orange);
+
+    --radius: 10px;
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-2: rgba(255, 255, 255, 0.02);
+    --mono:
+        ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono",
+        "Courier New", monospace;
+    --ui-sans:
+        Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+        Arial;
+}
+
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: var(--ui-sans);
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.45;
+}
