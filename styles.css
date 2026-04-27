@@ -38,3 +38,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.45;
 }
+textarea {
+    min-height: 50px;
+    resize: vertical;
+}
+code {
+    font-size: 16px;
+}
