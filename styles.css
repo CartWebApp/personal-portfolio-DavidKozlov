@@ -72,6 +72,7 @@ code {
     text-decoration: none;
     font-family: var(--mono);
     letter-spacing: 0.06em;
+    margin-left: 8px;
 }
 .logo-dot {
     color: var(--cta);
