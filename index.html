@@ -1,599 +1,487 @@
 <!doctype html>
 <html lang="en">
-    <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>David Kozlov - Portfolio</title>
-        <meta
-            name="description"
-            content="David Kozlov - portfolio showcasing projects, resume, devlog and contact."
-        >
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <!-- Sticky Navigation -->
-        <header class="site-header" id="top">
-            <nav class="nav container" aria-label="Primary">
-                <div class="brand">
-                    <a href="#home" class="logo" aria-label="Home"
-                        >DK<span class="logo-dot">.</span></a
-                    >
-                </div>
-                <button
-                    type="button"
-                    class="nav-toggle"
-                    aria-expanded="false"
-                    aria-controls="nav-list"
-                    aria-label="Toggle navigation"
-                >
-                    ☰
-                </button>
-                <ul class="nav-list" id="nav-list">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#plan">5-Year Plan</a></li>
-                    <li><a href="#reflection">Cart Reflection</a></li>
-                    <li><a href="#resume">Resume</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#devlog">Devlog</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+    <title>David Kozlov - Portfolio</title>
+    <meta name="description" content="David Kozlov - portfolio showcasing projects, resume, devlog and contact.">
+    <link rel="stylesheet" href="styles.css">
+</head>
 
-        <!-- Animated grid/circuit background + canvas for nodes -->
-        <div class="background-grid" aria-hidden="true"></div>
-        <canvas
-            id="circuit-canvas"
-            class="circuit-canvas"
-            aria-hidden="true"
-        ></canvas>
+<body>
+    <!-- Sticky Navigation -->
+    <header class="site-header" id="top">
+        <nav class="nav container" aria-label="Primary">
+            <div class="brand">
+                <a href="#home" class="logo" aria-label="Home">DK<span class="logo-dot">.</span></a>
+            </div>
+            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-list"
+                aria-label="Toggle navigation">
+                ☰
+            </button>
+            <ul class="nav-list" id="nav-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#plan">5-Year Plan</a></li>
+                <li><a href="#reflection">Cart Reflection</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#devlog">Devlog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Animated grid/circuit background + canvas for nodes -->
+    <div class="background-grid" aria-hidden="true"></div>
+    <canvas id="circuit-canvas" class="circuit-canvas" aria-hidden="true"></canvas>
 
     <main class="site-main">
-            <!-- HOME / Landing -->
-            <section id="home" class="panel hero">
-                <div class="container hero-inner">
-                    <div class="intro">
-                        <h1 class="name">David Kozlov</h1>
-                        <p class="title">
-                            Software Engineer • Systems Thinker • Designer
-                        </p>
-                        <p
-                            class="tagline"
-                            id="animated-tagline"
-                            aria-live="polite"
-                        >
-                            Building elegant systems that scale - one deliberate
-                            line at a time.
-                        </p>
-                        <div class="home-cta">
-                            <a class="btn btn-primary" href="#portfolio"
-                                >Explore Work</a
-                            >
-                            <a class="btn btn-ghost" href="#about">About Me</a>
-                        </div>
+        <!-- HOME / Landing -->
+        <section id="home" class="panel hero">
+            <div class="container hero-inner">
+                <div class="intro">
+                    <h1 class="name">David Kozlov</h1>
+                    <p class="title">
+                        Software Engineer • Systems Thinker • Designer
+                    </p>
+                    <p class="tagline" id="animated-tagline" aria-live="polite">
+                        Building elegant systems that scale - one deliberate
+                        line at a time.
+                    </p>
+                    <div class="home-cta">
+                        <a class="btn btn-primary" href="#portfolio">Explore Work</a>
+                        <a class="btn btn-ghost" href="#about">About Me</a>
                     </div>
-                    <div class="visual-hook" aria-hidden="true">
-                        <div class="panel-card visual-card">
-                            <pre class="terminal" aria-hidden="true">
+                </div>
+                <div class="visual-hook" aria-hidden="true">
+                    <div class="panel-card visual-card">
+                        <pre class="terminal" aria-hidden="true">
                                 &gt; init portfolio
                                 &gt; deploy -&gt; insight
                             </pre>
-                        </div>
                     </div>
-                </div>
-                <nav class="section-preview" aria-hidden="true">
-                    <a href="#about">About</a>
-                    <a href="#portfolio">Portfolio</a>
-                    <a href="#devlog">Devlog</a>
-                </nav>
-            </section>
-
-            <!-- ABOUT ME -->
-            <section id="about" class="panel about">
-                <div class="container">
-                    <h2 class="section-title">About Me</h2>
-                    <div class="about-grid">
-                        <article class="bio card module">
-                            <h3>Introduction</h3>
-                            <p>
-                                I am Software Development & Engineering student
-                                with technical proficiency in Python, C++, and
-                                JavaScript.
-                            </p>
-                            <p class="muted">
-                                Accessible, feature-focused, and curious - I
-                                love learning new tools and adding
-                                functionality.
-                            </p>
-                        </article>
-
-                        <aside
-                            class="skills card module"
-                            aria-labelledby="skills-heading"
-                        >
-                            <h3 id="skills-heading">Skills</h3>
-                            <ul class="skill-grid">
-                                <li><code>JavaScript</code></li>
-                                <li><code>HTML &amp; CSS</code></li>
-                                <li><code>C++ (Arduino)</code></li>
-                                <li><code>Figma</code></li>
-                                <li><code>Python</code></li>
-                            </ul>
-                        </aside>
-
-                        <article class="hobbies card module">
-                            <h3>Hobbies</h3>
-                            <p>
-                                Reading, Hiking, Cooking, Music, Travel, and
-                                working on personal projects that blend software
-                                and design.
-                            </p>
-                        </article>
-
-                        <article class="achievements card module">
-                            <h3>Achievements &amp; Certifications</h3>
-                            <ul>
-                                <li>OSHA Certified</li>
-                                <li>
-                                    Learned to code Python and C++ to complete
-                                    multiple robots and personal projects
-                                </li>
-                            </ul>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 5-YEAR PLAN -->
-            <section id="plan" class="panel plan">
-                <div class="container">
-                    <h2 class="section-title">5-Year Plan</h2>
-                    <div class="timeline blueprint">
-                        <div class="timeline-line" aria-hidden="true"></div>
-                        <ol class="timeline-items">
-                            <li class="timeline-item">
-                                <span class="year">Year 1</span>
-                                <div class="node">
-                                    <h3>Foundation</h3>
-                                    <p>
-                                        Master core programming skills (C++ and
-                                        HTML), build small projects, and
-                                        complete some Odin Project challenges to
-                                        solidify fundamentals.
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="timeline-item">
-                                <span class="year">Year 2-3</span>
-                                <div class="node">
-                                    <h3>Refinement</h3>
-                                    <p>
-                                        Focus on web development and figma
-                                        design to solidify my designs and basic
-                                        front-end skills.
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="timeline-item">
-                                <span class="year">Year 4-5</span>
-                                <div class="node">
-                                    <h3>JavaScript</h3>
-                                    <p>
-                                        Work with multiple teams to build my
-                                        JavaScript skills and gain experience in
-                                        a professional environment, while also
-                                        building out my resume. Start a large
-                                        project that further refines my
-                                        JavaScript and TypeScript knowledge and
-                                        professional organizational skills.
-                                    </p>
-                                </div>
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CART REFLECTION -->
-            <section id="reflection" class="panel reflection">
-                <div class="container">
-                    <h2 class="section-title">
-                        Cart Reflection - Growth Story
-                    </h2>
-                    <div class="reflection-grid">
-                        <article class="story card">
-                            <h3>What I Built</h3>
-                            <p>
-                                Both small and large projects that blend my
-                                software skills in JavaScript and C++ with my
-                                design skills in Figma, including a budget
-                                calculator, a zen garden prototype, and RPG
-                                game.
-                            </p>
-                        </article>
-                        <article class="story card">
-                            <h3>Problems</h3>
-                            <p>
-                                Developing readable and scalable code, managing
-                                project scope, and maintaining consistent
-                                progress.
-                            </p>
-                        </article>
-                        <article class="story card">
-                            <h3>Solutions</h3>
-                            <p>
-                                Reading documentation and examples, working with
-                                mentors, and setting regular goals and deadlines
-                                to stay on track.
-                            </p>
-                        </article>
-                        <article class="story card">
-                            <h3>Habits</h3>
-                            <p>
-                                Starting small experiments, building small
-                                projects, and staying focused on task.
-                            </p>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <!-- RESUME -->
-            <section id="resume" class="panel resume">
-                <div class="container">
-                    <h2 class="section-title">Resume</h2>
-                    <div class="resume-wrap card code-theme">
-                        <header class="resume-header">
-                            <h3>David Kozlov</h3>
-                            <p class="muted">
-                                Software Engineer - system design · development
-                                · accessibility
-                            </p>
-                            <p class="muted small">
-                                DavidKozlov24@gmail.com • github.com/DavidKozlov
-                                • Clovis, California
-                            </p>
-                        </header>
-
-                        <section class="resume-section">
-                            <h4>Professional Summary</h4>
-                            <p>
-                                Student at the Center of Advanced Research and
-                                Technology and Buchanan High School. Software
-                                Development & Engineering student with technical
-                                proficiency in Python and C++. Proven ability to
-                                lead projects, including the 3+ month
-                                development of the Fresno Chaffee Zoo enrichment
-                                tracker, with a focus on user-centered digital
-                                solutions.
-                            </p>
-
-                            <h4>Core Skills</h4>
-                            <ul>
-                                <li>
-                                    <code>JavaScript</code>,
-                                    <code>HTML/CSS</code>, 
-                                    <code>Python</code>,
-                                    <code>C++</code>
-                                </li>
-                                <li>
-                                    <code>C++</code> (Arduino Systems) and
-                                    hardware interfacing
-                                </li>
-                                <li>
-                                    Accessibility, performance, testing,
-                                    and debugging best practices
-                                </li>
-                                <li>
-                                    Design tools: Figma; collaborative
-                                    workflows; MDN documentation
-                                </li>
-                            </ul>
-
-                            <article>
-                                <h3>Project Highlights</h3>
-                                <p><strong>VEX project Lead</strong> - Engineering Class <span class="muted">(2025)</span></p>
-                                <p>Architected control systems, led CAD and on-paper design, and coordinated testing.</p>
-                            </article>
-
-                            <h4>Education &amp; Certifications</h4>
-                            <p>High School - Center for Advanced Research and Technology</p>
-                            <p>High School - Buchanan High School</p>
-                            <span class="muted">Expected Graduation: 2027</span>
-                            <ul>
-                                <li>
-                                    OSHA Certified
-                                </li>
-                            </ul>
-                        </section>
-
-                        <footer class="resume-actions">
-                            <!-- Link to PDF -->
-                            <a
-                                class="btn btn-cta"
-                                href="assets/Resume.pdf"
-                                download
-                                aria-label="Download Resume PDF"
-                                >Download PDF</a
-                            >
-                            <a
-                                class="btn btn-primary"
-                                href="assets/Resume.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >Open PDF</a
-                            >
-                            <a class="btn btn-ghost" href="#contact"
-                                >Request more</a
-                            >
-                        </footer>
-                    </div>
-                </div>
-            </section>
-
-            <!-- PORTFOLIO OVERVIEW -->
-            <section id="portfolio" class="panel portfolio">
-                <div class="container">
-                    <h2 class="section-title">Portfolio</h2>
-                    <div class="filters">
-                        <button class="chip active" data-filter="all">
-                            All
-                        </button>
-                        <button class="chip" data-filter="web">
-                            Web / Programming
-                        </button>
-                        <button class="chip" data-filter="writing">
-                            Writing
-                        </button>
-                    </div>
-
-                    <div class="cards-grid" id="projects">
-                        <!-- Web / Programming (3) -->
-                        <article
-                            class="project card exploded"
-                            data-type="web"
-                            tabindex="0"
-                        >
-                            <h3>Budget Calculator</h3>
-                            <p class="muted">
-                                Interactive budgeting tool with dynamic charts and local storage.
-                            </p>
-                            <div class="meta">Tech: JS, HTML, CSS</div>
-                            <button
-                                type="button"
-                                class="btn btn-sm btn-primary view"
-                                data-id="budget"
-                            >
-                                View Case Study
-                            </button>
-                        </article>
-
-                        <article
-                            class="project card exploded"
-                            data-type="web"
-                            tabindex="0"
-                        >
-                            <h3>Zen Garden</h3>
-                            <p class="muted">
-                                Artful CSS and semantic HTML
-                            </p>
-                            <div class="meta">Tech: CSS, HTML</div>
-                            <button
-                                type="button"
-                                class="btn btn-sm btn-primary view"
-                                data-id="zen"
-                            >
-                                View Case Study
-                            </button>
-                        </article>
-
-                        <article
-                            class="project card exploded"
-                            data-type="web"
-                            tabindex="0"
-                        >
-                            <h3>To-Do List</h3>
-                            <p class="muted">
-                                Introduction to JavaScript
-                            </p>
-                            <div class="meta">Tech: JS, LocalStorage</div>
-                            <button
-                                type="button"
-                                class="btn btn-sm btn-primary view"
-                                data-id="todo"
-                            >
-                                View Case Study
-                            </button>
-                        </article>
-
-                        <!-- Engineering -->
-                        <article
-                            class="project card exploded"
-                            data-type="engineering"
-                            tabindex="0"
-                        >
-                            <h3>VEX Robotics</h3>
-                            <p class="muted">
-                                Engineering project designing and building a robot,
-                            </p>
-                            <div class="meta">Tech: C++, CAD</div>
-                            <button
-                                type="button"
-                                class="btn btn-sm btn-primary view"
-                                data-id="vex"
-                            >
-                                View Case Study
-                            </button>
-                        </article>
-
-                        <!-- Figma -->
-                        <article
-                            class="project card exploded"
-                            data-type="design"
-                            tabindex="0"
-                        >
-                            <h3>Enrichment Zoo project (Figma)</h3>
-                            <p class="muted">
-                                Nature-centered UI design system.
-                            </p>
-                            <div class="meta">Tool: Figma</div>
-                            <button
-                                type="button"
-                                class="btn btn-sm btn-primary view"
-                                data-id="figma"
-                            >
-                                View Case Study
-                            </button>
-                        </article>
-
-                        <!-- Writing (2)-->
-                        <article
-                            class="project card exploded"
-                            data-type="writing"
-                            tabindex="0"
-                        >
-                            <h3>Research Paper</h3>
-                            <p class="muted">
-                                Study on Enrichment and its effects on the stress hormones and behavior of captive animals.
-                            </p>
-                            <div class="meta">Writing</div>
-                            <button
-                                type="button"
-                                class="btn btn-sm btn-primary view"
-                                data-id="research"
-                            >
-                                View Case Study
-                            </button>
-                        </article>
-
-                        <article
-                            class="project card exploded"
-                            data-type="writing"
-                            tabindex="0"
-                        >
-                            <h3>Resume (Writing)</h3>
-                            <p class="muted">
-                                Resume crafted with a focus on clarity, impact, and tech-skills.
-                            </p>
-                            <div class="meta">Writing</div>
-                            <button
-                                type="button"
-                                class="btn btn-sm btn-primary view"
-                                data-id="writing-resume"
-                            >
-                                View Case Study
-                            </button>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CASE STUDY MODAL -->
-            <div
-                id="case-modal"
-                class="modal"
-                role="dialog"
-                aria-modal="true"
-                aria-hidden="true"
-            >
-                <div class="modal-panel">
-                    <button type="button" class="modal-close" aria-label="Close">✕</button>
-                    <div id="case-content" class="case-content"></div>
                 </div>
             </div>
+            <nav class="section-preview" aria-hidden="true">
+                <a href="#about">About</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#devlog">Devlog</a>
+            </nav>
+        </section>
 
-            <!-- DEVLOG -->
-            <section id="devlog" class="panel devlog">
-                <div class="container">
-                    <h2 class="section-title">Developer Log</h2>
-                    <ol class="log-list">
-                        <li>
-                            <h3>Initial Scaffold</h3>
-                            <!-- Add in after building project-->
-                            <p>
-                                What: Built the site structure. 
-                                Problems:
-                                Solutions:
-                                Changes:
-                            </p>
+        <!-- ABOUT ME -->
+        <section id="about" class="panel about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-grid">
+                    <article class="bio card module">
+                        <h3>Introduction</h3>
+                        <p>
+                            I am a Software Development & Engineering student
+                            with technical proficiency in Python, C++, and
+                            JavaScript.
+                        </p>
+                        <p class="muted">
+                            I love learning new tools and adding
+                            functionality through being accessible, feature-focused, and curious
+                        </p>
+                    </article>
+
+                    <aside class="skills card module" aria-labelledby="skills-heading">
+                        <h3 id="skills-heading">Skills</h3>
+                        <ul class="skill-grid">
+                            <li><code>JavaScript</code></li>
+                            <li><code>HTML &amp; CSS</code></li>
+                            <li><code>C++ (Arduino)</code></li>
+                            <li><code>Figma</code></li>
+                            <li><code>Python</code></li>
+                        </ul>
+                    </aside>
+
+                    <article class="hobbies card module">
+                        <h3>Hobbies</h3>
+                        <p>
+                            Reading, Hiking, Cooking, Music, Travel, and
+                            working on personal projects that blend software
+                            and design.
+                        </p>
+                    </article>
+
+                    <article class="achievements card module">
+                        <h3>Achievements &amp; Certifications</h3>
+                        <ul>
+                            <li>OSHA Certified</li>
+                            <li>
+                                Learned to code Python and C++ to complete
+                                multiple robots and personal projects
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5-YEAR PLAN -->
+        <section id="plan" class="panel plan">
+            <div class="container">
+                <h2 class="section-title">5-Year Plan</h2>
+                <div class="timeline blueprint">
+                    <div class="timeline-line" aria-hidden="true"></div>
+                    <ol class="timeline-items">
+                        <li class="timeline-item">
+                            <span class="year">Year 1</span>
+                            <div class="node">
+                                <h3>Foundation</h3>
+                                <p>
+                                    Master core programming skills (C++ and
+                                    HTML), build small projects, and
+                                    complete some Odin Project challenges to
+                                    solidify fundamentals.
+                                </p>
+                            </div>
                         </li>
-                        <li>
-                            <h3>Case Study Modal</h3>
-                            <!-- Add in after building project-->
-                            <p>
-                                What: Reusable modal for projects. 
-                                Problems:
-                                Solutions:
-                                Changes:
-                            </p>
+                        <li class="timeline-item">
+                            <span class="year">Year 2-3</span>
+                            <div class="node">
+                                <h3>Refinement</h3>
+                                <p>
+                                    Focus on web development and figma
+                                    design to solidify my designs and basic
+                                    front-end skills.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="timeline-item">
+                            <span class="year">Year 4-5</span>
+                            <div class="node">
+                                <h3>Solidification</h3>
+                                <p>
+                                    Work with multiple teams to build my
+                                    skills and gain experience in
+                                    a professional environment, while also
+                                    building out my resume. Start large
+                                    projects that further refine my
+                                    JavaScript and TypeScript knowledge and
+                                    professional organizational skills.
+                                </p>
+                            </div>
                         </li>
                     </ol>
                 </div>
-            </section>
-
-            <!-- CONTACT -->
-            <section id="contact" class="panel contact">
-                <div class="container">
-                    <h2 class="section-title">Contact</h2>
-                    <p>Thank you for visiting - feel free to get in touch.</p>
-                    <div class="contact-grid">
-                        <div class="card social">
-                            <h3>Social</h3>
-                            <ul>
-                                <li><a href="https://github.com/DavidKozlov">GitHub</a></li>
-                                <!-- I don't ever know if this will be unblocked :( -->
-                                <!-- Include when avalable -->
-                                <li><a href="#">LinkedIn</a></li>
-                            </ul>
-                        </div>
-
-                        <form
-                            id="contact-form"
-                            class="card terminal-form"
-                            name="contact"
-                            method="POST"
-                            data-netlify="true"
-                        >
-                            <!-- Make sure to use Netlify Forms -->
-                            <h3>Message</h3>
-                            <label for="name">Name</label>
-                            <input id="name" name="name" required>
-                            <label for="email">Email</label>
-                            <input
-                                id="email"
-                                name="email"
-                                type="email"
-                                required
-                            >
-                            <label for="message">Message</label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="5"
-                                required
-                            ></textarea>
-                            <button class="btn btn-cta" type="submit">
-                                Send
-                            </button>
-                            <p class="muted small">
-                                Form supports Netlify Forms.
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="site-footer">
-            <div class="container">
-                <small
-                    >David Kozlov - portfolio • Built with HTML, CSS &amp;
-                    JS</small
-                >
             </div>
-        </footer>
+        </section>
 
-        <script src="script.js" defer></script>
-    </body>
+        <!-- CART REFLECTION -->
+        <section id="reflection" class="panel reflection">
+            <div class="container">
+                <h2 class="section-title">
+                    Cart Reflection - Growth Story
+                </h2>
+                <div class="reflection-grid">
+                    <article class="story card">
+                        <h3>What I Built</h3>
+                        <p>
+                            Both small and large projects that blend my
+                            software skills in JavaScript and C++ with my
+                            design skills in Figma, including a budget
+                            calculator, a zen garden prototype, and RPG
+                            game.
+                        </p>
+                    </article>
+                    <article class="story card">
+                        <h3>Problems</h3>
+                        <p>
+                            Developing readable and scalable code, managing
+                            project scope, and maintaining consistent
+                            progress.
+                        </p>
+                    </article>
+                    <article class="story card">
+                        <h3>Solutions</h3>
+                        <p>
+                            Reading documentation and examples, working with
+                            mentors, and setting regular goals and deadlines
+                            to stay on track.
+                        </p>
+                    </article>
+                    <article class="story card">
+                        <h3>Habits</h3>
+                        <p>
+                            Starting small experiments, building small
+                            projects, and staying focused on task.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESUME -->
+        <section id="resume" class="panel resume">
+            <div class="container">
+                <h2 class="section-title">Resume</h2>
+                <div class="resume-wrap card code-theme">
+                    <header class="resume-header">
+                        <h3>David Kozlov</h3>
+                        <p class="muted">
+                            Software Engineer - system design · development
+                            · accessibility
+                        </p>
+                        <p class="muted small">
+                            DavidKozlov24@gmail.com • github.com/DavidKozlov
+                            • Clovis, California
+                        </p>
+                    </header>
+
+                    <section class="resume-section">
+                        <h4>Professional Summary</h4>
+                        <p>
+                            Student at the Center of Advanced Research and
+                            Technology and Buchanan High School. Software
+                            Development & Engineering student with technical
+                            proficiency in Python and C++. Proven ability to
+                            lead projects, including the 3+ month
+                            development of the Fresno Chaffee Zoo enrichment
+                            tracker, with a focus on user-centered digital
+                            solutions.
+                        </p>
+
+                        <h4>Core Skills</h4>
+                        <ul>
+                            <li>
+                                <code>JavaScript</code>,
+                                <code>HTML/CSS</code>,
+                                <code>Python</code>,
+                                <code>C++</code>
+                            </li>
+                            <li>
+                                <code>C++</code> (Arduino Systems) and
+                                hardware interfacing
+                            </li>
+                            <li>
+                                Accessibility, performance, testing,
+                                and debugging best practices
+                            </li>
+                            <li>
+                                Design tools: Figma; collaborative
+                                workflows; MDN documentation
+                            </li>
+                        </ul>
+
+                        <article>
+                            <h3>Project Highlights</h3>
+                            <p><strong>VEX project Lead</strong> - Engineering Class <span class="muted">(2025)</span>
+                            </p>
+                            <p>Architected control systems, led CAD and on-paper design, and coordinated testing.</p>
+                        </article>
+
+                        <h4>Education &amp; Certifications</h4>
+                        <p>High School - Center for Advanced Research and Technology</p>
+                        <p>High School - Buchanan High School</p>
+                        <span class="muted">Expected Graduation: 2027</span>
+                        <ul>
+                            <li>
+                                OSHA Certified
+                            </li>
+                        </ul>
+                    </section>
+
+                    <footer class="resume-actions">
+                        <!-- Link to PDF -->
+                        <a class="btn btn-cta" href="assets/Resume.pdf" download
+                            aria-label="Download Resume PDF">Download PDF</a>
+                        <a class="btn btn-primary" href="assets/Resume.pdf" target="_blank"
+                            rel="noopener noreferrer">Open PDF</a>
+                        <a class="btn btn-ghost" href="#contact">Request more</a>
+                    </footer>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO OVERVIEW -->
+        <section id="portfolio" class="panel portfolio">
+            <div class="container">
+                <h2 class="section-title">Portfolio</h2>
+                <div class="filters">
+                    <button class="chip active" data-filter="all">
+                        All
+                    </button>
+                    <button class="chip" data-filter="web">
+                        Web / Programming
+                    </button>
+                    <button class="chip" data-filter="writing">
+                        Writing
+                    </button>
+                </div>
+
+                <div class="cards-grid" id="projects">
+                    <!-- Web / Programming (3) -->
+                    <article class="project card exploded" data-type="web" tabindex="0">
+                        <h3>Budget Calculator</h3>
+                        <p class="muted">
+                            Interactive budgeting tool with dynamic charts and local storage.
+                        </p>
+                        <div class="meta">Tech: JS, HTML, CSS</div>
+                        <button type="button" class="btn btn-sm btn-primary view" data-id="budget">
+                            View Case Study
+                        </button>
+                    </article>
+
+                    <article class="project card exploded" data-type="web" tabindex="0">
+                        <h3>Zen Garden</h3>
+                        <p class="muted">
+                            Artful CSS and semantic HTML
+                        </p>
+                        <div class="meta">Tech: CSS, HTML</div>
+                        <button type="button" class="btn btn-sm btn-primary view" data-id="zen">
+                            View Case Study
+                        </button>
+                    </article>
+
+                    <article class="project card exploded" data-type="web" tabindex="0">
+                        <h3>To-Do List</h3>
+                        <p class="muted">
+                            Introduction to JavaScript
+                        </p>
+                        <div class="meta">Tech: JS, LocalStorage</div>
+                        <button type="button" class="btn btn-sm btn-primary view" data-id="todo">
+                            View Case Study
+                        </button>
+                    </article>
+
+                    <!-- Engineering -->
+                    <article class="project card exploded" data-type="engineering" tabindex="0">
+                        <h3>VEX Robotics</h3>
+                        <p class="muted">
+                            Engineering project designing and building a robot,
+                        </p>
+                        <div class="meta">Tech: C++, CAD</div>
+                        <button type="button" class="btn btn-sm btn-primary view" data-id="vex">
+                            View Case Study
+                        </button>
+                    </article>
+
+                    <!-- Figma -->
+                    <article class="project card exploded" data-type="design" tabindex="0">
+                        <h3>Enrichment Zoo project (Figma)</h3>
+                        <p class="muted">
+                            Nature-centered UI design system.
+                        </p>
+                        <div class="meta">Tool: Figma</div>
+                        <button type="button" class="btn btn-sm btn-primary view" data-id="figma">
+                            View Case Study
+                        </button>
+                    </article>
+
+                    <!-- Writing (2)-->
+                    <article class="project card exploded" data-type="writing" tabindex="0">
+                        <h3>Research Paper</h3>
+                        <p class="muted">
+                            Study on Enrichment and its effects on the stress hormones and behavior of captive animals.
+                        </p>
+                        <div class="meta">Writing</div>
+                        <button type="button" class="btn btn-sm btn-primary view" data-id="research">
+                            View Case Study
+                        </button>
+                    </article>
+
+                    <article class="project card exploded" data-type="writing" tabindex="0">
+                        <h3>Resume (Writing)</h3>
+                        <p class="muted">
+                            Resume crafted with a focus on clarity, impact, and tech-skills.
+                        </p>
+                        <div class="meta">Writing</div>
+                        <button type="button" class="btn btn-sm btn-primary view" data-id="writing-resume">
+                            View Case Study
+                        </button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CASE STUDY MODAL -->
+        <div id="case-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+            <div class="modal-panel">
+                <button type="button" class="modal-close" aria-label="Close">✕</button>
+                <div id="case-content" class="case-content"></div>
+            </div>
+        </div>
+
+        <!-- DEVLOG -->
+        <section id="devlog" class="panel devlog">
+            <div class="container">
+                <h2 class="section-title">Developer Log</h2>
+                <ol class="log-list">
+                    <li>
+                        <h3>Initial Scaffold</h3>
+                        <!-- Add in after building project-->
+                        <p>
+                            What: Built the site structure.
+                            Problems:
+                            Solutions:
+                            Changes:
+                        </p>
+                    </li>
+                    <li>
+                        <h3>Case Study Modal</h3>
+                        <!-- Add in after building project-->
+                        <p>
+                            What: Reusable modal for projects.
+                            Problems:
+                            Solutions:
+                            Changes:
+                        </p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="panel contact">
+            <div class="container">
+                <h2 class="section-title">Contact</h2>
+                <p>Thank you for visiting - feel free to get in touch.</p>
+                <div class="contact-grid">
+                    <div class="card social">
+                        <h3>Social</h3>
+                        <ul>
+                            <li><a href="https://github.com/DavidKozlov">GitHub</a></li>
+                            <!-- I don't ever know if this will be unblocked :( -->
+                            <!-- Include when avalable -->
+                            <li><a href="#">LinkedIn</a></li>
+                        </ul>
+                    </div>
+
+                    <form id="contact-form" class="card terminal-form" name="contact" method="POST" data-netlify="true">
+                        <!-- Make sure to use Netlify Forms -->
+                        <h3>Message</h3>
+                        <label for="name">Name</label>
+                        <input id="name" name="name" required>
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" required>
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <button class="btn btn-cta" type="submit">
+                            Send
+                        </button>
+                        <p class="muted small">
+                            Form supports Netlify Forms.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <small>David Kozlov - portfolio • Built with HTML, CSS &amp;
+                JS</small>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+
 </html>
