@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Animated tagline
     const taglines = [
-        "Building elegant systems that scale — one deliberate line at a time.",
+        "Building elegant systems that scale - one deliberate line at a time.",
         "Design-minded engineering focused on clarity and impact.",
         "Curious, meticulous, collaborative.",
     ];
@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
         draw();
     }
 
-    // Form submit handling — Netlify-friendly AJAX submit with graceful fallback
+    // Form submit handling
     const contactForm = document.getElementById("contact-form");
     if (contactForm) {
         contactForm.addEventListener("submit", function (e) {
@@ -326,7 +326,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
                 .then((res) => {
                     if (res.ok) {
-                        contactForm.innerHTML = `<h3>Thanks — message received</h3><p class="muted">I appreciate you reaching out. I'll get back to you soon.</p><p style="margin-top:1rem;"><a class="btn btn-primary" href="/">Return to portfolio</a></p>`;
+                        contactForm.innerHTML = `<h3>Thanks - message received</h3><p class="muted">I appreciate you reaching out. I'll get back to you soon.</p><p style="margin-top:1rem;"><a class="btn btn-primary" href="/">Return to portfolio</a></p>`;
                     } else {
                         window.location.href = "/thank-you.html";
                     }
