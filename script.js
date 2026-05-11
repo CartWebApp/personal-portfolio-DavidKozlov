@@ -319,17 +319,20 @@ document.addEventListener("DOMContentLoaded", () => {
             const body = new URLSearchParams();
             for (const pair of formData.entries()) body.append(pair[0], pair[1]);
 
-            fetch("/", {
+                // POST to serverless function that forwards email via SendGrid
+                fetch("/.netlify/functions/sendEmail", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: body.toString(),
             })
                 .then((res) => {
-                    if (res.ok) {
-                        contactForm.innerHTML = `<h3>Thanks - message received</h3><p class="muted">I appreciate you reaching out. I'll get back to you soon.</p><p style="margin-top:1rem;"><a class="btn btn-primary" href="/">Return to portfolio</a></p>`;
-                    } else {
-                        window.location.href = "/thank-you.html";
-                    }
+                        if (res.ok) {
+                            // inline confirmation
+                            contactForm.innerHTML = `<h3>Thanks — message received</h3><p class="muted">I appreciate you reaching out. I'll get back to you soon.</p><p style="margin-top:1rem;"><a class="btn btn-primary" href="/">Return to portfolio</a></p>`;
+                        } else {
+                            // attempt fallback to the thank-you page
+                            window.location.href = "/thank-you.html";
+                        }
                 })
                 .catch(() => {
                     window.location.href = "/thank-you.html";
