@@ -298,17 +298,42 @@ document.addEventListener("DOMContentLoaded", () => {
         draw();
     }
 
-    // Form submit handling
+    // Form submit handling — Netlify-friendly AJAX submit with graceful fallback
     const contactForm = document.getElementById("contact-form");
     if (contactForm) {
-        contactForm.addEventListener("submit", () => {
+        contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
             const btn = contactForm.querySelector("button[type=submit]");
-            if (!btn) return;
-            btn.textContent = "Sending…";
-            setTimeout(() => {
-                btn.textContent = "Sent";
+            const formData = new FormData(contactForm);
+
+            // Honeypot check (For Andrew)
+            if (formData.get("bot-field")) {
+                return;
+            }
+
+            if (btn) {
+                btn.textContent = "Sending…";
                 btn.disabled = true;
-            }, 800);
+            }
+
+            const body = new URLSearchParams();
+            for (const pair of formData.entries()) body.append(pair[0], pair[1]);
+
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: body.toString(),
+            })
+                .then((res) => {
+                    if (res.ok) {
+                        contactForm.innerHTML = `<h3>Thanks — message received</h3><p class="muted">I appreciate you reaching out. I'll get back to you soon.</p><p style="margin-top:1rem;"><a class="btn btn-primary" href="/">Return to portfolio</a></p>`;
+                    } else {
+                        window.location.href = "/thank-you.html";
+                    }
+                })
+                .catch(() => {
+                    window.location.href = "/thank-you.html";
+                });
         });
     }
 });
