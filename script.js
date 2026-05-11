@@ -57,6 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Working with teamates",
             ],
             habits: ["Collaborating", "Daily and on task work"],
+            media: [
+                { type: "image", src: "assets/budget-planner-image.png", alt: "Budget Planner screenshot" },
+            ],
         },
         zen: {
             title: "Zen Garden",
@@ -65,6 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
             learned: ["Creative styles", "Selectors"],
             challenges: ["Converting em to px"],
             habits: ["Perserverence"],
+            media: [
+                { type: "image", src: "assets/zen-garden-image.png", alt: "Zen Garden design" },
+            ],
         },
         todo: {
             title: "To-Do List",
@@ -73,6 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
             learned: ["JavaScript", "LocalStorage"],
             challenges: ["Keeping correct states in LocalStorage"],
             habits: ["Problem Solving"],
+            media: [
+                { type: "image", src: "assets/to-do-list-image.png", alt: "To-Do List screenshot" },
+            ],
         },
         vex: {
             title: "VEX Robot",
@@ -84,6 +93,9 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             challenges: ["Size constraints"],
             habits: ["Test & iterate"],
+            media: [
+                { type: "video", src: "assets/VEX-video.mp4", alt: "VEX robot demo" },
+            ],
         },
         figma: {
             title: "Zoo enrichment app (Figma)",
@@ -92,6 +104,9 @@ document.addEventListener("DOMContentLoaded", () => {
             learned: ["Variables", "Component libraries"],
             challenges: ["Consistency and across-screen functionality"],
             habits: ["Teamwork"],
+            media: [
+                { type: "image", src: "assets/figma-image.svg", alt: "Figma design sample" },
+            ],
         },
         research: {
             title: "Research Paper",
@@ -101,6 +116,9 @@ document.addEventListener("DOMContentLoaded", () => {
             learned: ["Research techniques", "Note taking methods"],
             challenges: ["Looking for relevent information"],
             habits: ["Document everything"],
+            media: [
+                { type: "image", src: "assets/research-paper-image.jpg", alt: "Research paper visual" },
+            ],
         },
         "writing-resume": {
             title: "Resume Writing",
@@ -109,8 +127,26 @@ document.addEventListener("DOMContentLoaded", () => {
             learned: ["Resume and interview techniques"],
             challenges: ["conciseness"],
             habits: ["Peer review"],
+            media: [
+                { type: "image", src: "assets/resume-image.png", alt: "Professional headshot" },
+            ],
         },
     };
+
+    // Render media gallery for a case study (images and video)
+    function renderMedia(media) {
+        if (!media || !Array.isArray(media) || media.length === 0) return "";
+        const items = media
+            .map((m) => {
+                if (m.type === "image")
+                    return `<figure class=\"case-media\"><img src=\"${m.src}\" alt=\"${m.alt || ""}\"><figcaption>${m.alt || ""}</figcaption></figure>`;
+                if (m.type === "video")
+                    return `<figure class=\"case-media\"><video controls preload=\"metadata\" aria-label=\"${m.alt || "video"}\"><source src=\"${m.src}\" type=\"video/mp4\">${"Your browser does not support the video element."}</video><figcaption>${m.alt || ""}</figcaption></figure>`;
+                return "";
+            })
+            .join("");
+        return `<div class=\"media-gallery\">${items}</div>`;
+    }
 
     // Open modal with case study
     let lastFocusedEl = null;
@@ -123,10 +159,12 @@ document.addEventListener("DOMContentLoaded", () => {
     function openCase(id) {
         const data = CASES[id];
         if (!data || !modal || !modalContent) return;
-        const html = `\n      <h2>${data.title}</h2>\n      <p class="muted">${data.overview}</p>\n      <h3>Technology &amp; Tools</h3>\n      ${renderListOrText(data.tech)}\n      <h3>Concepts Learned</h3>\n      ${renderListOrText(data.learned)}\n      <h3>Challenges &amp; Solutions</h3>\n      ${renderListOrText(data.challenges)}\n      <h3>Habits of Mind</h3>\n      ${renderListOrText(data.habits)}\n    `;
+        const titleId = "case-title";
+        const html = `\n      <h2 id=\"${titleId}\">${data.title}</h2>\n      ${renderMedia(data.media)}\n      <p class="muted">${data.overview}</p>\n      <h3>Technology &amp; Tools</h3>\n      ${renderListOrText(data.tech)}\n      <h3>Concepts Learned</h3>\n      ${renderListOrText(data.learned)}\n      <h3>Challenges &amp; Solutions</h3>\n      ${renderListOrText(data.challenges)}\n      <h3>Habits of Mind</h3>\n      ${renderListOrText(data.habits)}\n    `;
         modalContent.innerHTML = html;
         lastFocusedEl = document.activeElement;
         modal.setAttribute("aria-hidden", "false");
+        modal.setAttribute("aria-labelledby", titleId);
         document.body.style.overflow = "hidden";
         const closeBtn = modal.querySelector(".modal-close");
         if (closeBtn) closeBtn.focus();
@@ -135,10 +173,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function closeModal() {
         if (!modal || !modalContent) return;
         modal.setAttribute("aria-hidden", "true");
+        modal.removeAttribute("aria-labelledby");
         modalContent.innerHTML = "";
         document.body.style.overflow = "";
-        if (lastFocusedEl && typeof lastFocusedEl.focus === "function")
-            lastFocusedEl.focus();
+        if (lastFocusedEl && typeof lastFocusedEl.focus === "function") lastFocusedEl.focus();
         lastFocusedEl = null;
     }
 
